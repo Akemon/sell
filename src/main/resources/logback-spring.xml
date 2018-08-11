@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<configuration>
+    <appender name="consoleLog" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>
+                %d  -  %msg%n
+            </pattern>
+        </layout>
+    </appender>
+
+    <!--只生成info信息的log-->
+    <appender name="fileInfoLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>DENY</onMatch>
+            <onMismatch>ACCEPT</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>
+                %msg%n
+            </pattern>
+        </encoder>
+        <!--滚动策略-->
+       <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+           <fileNamePattern>
+               d:\\springlog\\info.%d.log
+           </fileNamePattern>
+       </rollingPolicy>
+    </appender>
+
+    <!--只生成error信息的log-->
+    <appender name="fileErrorLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+        <encoder>
+            <pattern>
+                %msg%n
+            </pattern>
+        </encoder>
+        <!--滚动策略-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>
+                d:\\springlog\\error.%d.log
+            </fileNamePattern>
+        </rollingPolicy>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="consoleLog"></appender-ref>
+        <appender-ref ref="fileInfoLog"></appender-ref>
+        <appender-ref ref="fileErrorLog"></appender-ref>
+    </root>
+</configuration>
