@@ -45,7 +45,7 @@ public class BuyerProductController {
         List<ProductCategory> productCategoryList =categoryService.findByCategoryTypeIn(categoryList);
         //3.数据拼装
 
-        //保存所有类目的列表
+        //保存所有类目的列表，里面包括了商品详细信息
         List<ProductVO> productVOList =new ArrayList<>();
 
         //获取所有类目信息
