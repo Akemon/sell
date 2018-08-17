@@ -1,8 +1,10 @@
 package com.hk.sell.bean;
 
 import lombok.Data;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * @author 何康
@@ -13,6 +15,7 @@ import javax.persistence.*;
 @Entity
 //默认生成get和set方法
 @Data
+@DynamicUpdate
 public class ProductCategory {
     //类目ID
     @Id
@@ -24,6 +27,10 @@ public class ProductCategory {
 
     //类目编号
     private Integer categoryType;
+
+    private Date createTime;
+
+    private Date updateTime;
 
     public ProductCategory(String categoryName, Integer categoryType) {
         this.categoryName = categoryName;

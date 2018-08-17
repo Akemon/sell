@@ -3,11 +3,13 @@ package com.hk.sell.bean;
 import com.hk.sell.enums.OrderStatusEnum;
 import com.hk.sell.enums.PayStatusEnum;
 import lombok.Data;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Transient;
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -16,6 +18,7 @@ import java.util.List;
  */
 @Entity
 @Data
+@DynamicUpdate
 public class OrderMaster {
 
 //    订单id
@@ -42,6 +45,10 @@ public class OrderMaster {
 
 //    支付状态，默认为0未支付
     private Integer payStatus= PayStatusEnum.WAIT.getCode();
+
+    private Date createTime;
+
+    private Date updateTime;
 
     //忽略与数据库的关联（不建议直接写在这里，这是与数据库交互的地方）
 //    @Transient

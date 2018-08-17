@@ -8,6 +8,10 @@ spring:
   jpa:
     show-sql: true
 
+  #全局配置，将对象为空时，属性不返回，当如果为空依旧要返回，需要独自给初始化并注释下列注解
+  jackson:
+    default-property-inclusion: non_null
+
 server:
   servlet:
     context-path: /sell

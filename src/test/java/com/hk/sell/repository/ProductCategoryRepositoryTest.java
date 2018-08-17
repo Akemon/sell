@@ -1,6 +1,7 @@
 package com.hk.sell.repository;
 
 import com.hk.sell.bean.ProductCategory;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,6 +22,7 @@ import static org.junit.Assert.*;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@Slf4j
 public class ProductCategoryRepositoryTest {
 
     @Autowired
@@ -47,8 +49,9 @@ public class ProductCategoryRepositoryTest {
     public void updateTest(){
         ProductCategory productCategory = productCategoryRepository.findById(3).orElse(null);
         productCategory.setCategoryName("女生最爱");
-        productCategory.setCategoryType(11);
+        productCategory.setCategoryType(10);
         productCategoryRepository.save(productCategory);
+        log.info("【时间】时间={}"+productCategory.getCreateTime());
     }
 
     @Test
