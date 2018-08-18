@@ -21,3 +21,9 @@ server:
 #    #设置日志输出的格式，减少输出的信息长度
 #    console: "%d - %msg%n"
 #  path: d:\\springlog
+
+wechat:
+  mpAppId: wx7ed8085780363b9d
+  mpAppSecret: 1b27c02bda115ab4e01908973c30d817
+
+
