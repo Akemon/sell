@@ -29,9 +29,9 @@ public class WechatMpConfig {
     @Bean
     public WxMpConfigStorage wxMpConfigStorage(){
         WxMpInMemoryConfigStorage wxMpConfigStorage =new WxMpInMemoryConfigStorage();
-        wxMpConfigStorage.setAppId(accountConfig.getMAppId());
-        wxMpConfigStorage.setSecret(accountConfig.getMAppSecret());
-        log.info("【appid】={}",accountConfig.getMAppId());
+        wxMpConfigStorage.setAppId(accountConfig.getMpAppId());
+        wxMpConfigStorage.setSecret(accountConfig.getMpAppSecret());
+        log.info("【appid】={}",accountConfig.getMpAppId());
         return wxMpConfigStorage;
     }
 }
